@@ -1,0 +1,209 @@
+@import "tailwindcss" source(none);
+@import "tw-animate-css";
+
+@source "../src";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+    --radius-sm: calc(var(--radius) - 4px);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) + 4px);
+    --radius-2xl: calc(var(--radius) + 8px);
+
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-destructive: var(--destructive);
+    --color-destructive-foreground: var(--destructive-foreground);
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+
+    --color-gold: var(--gold);
+    --color-gold-bright: var(--gold-bright);
+    --color-gold-muted: var(--gold-muted);
+    --color-gold-dim: var(--gold-dim);
+    --color-navy: var(--navy);
+    --color-navy-card: var(--navy-card);
+    --color-up: var(--up);
+    --color-down: var(--down);
+
+    --font-display: "Playfair Display", serif;
+    --font-body: "DM Sans", sans-serif;
+    --font-bn: "Hind Siliguri", "DM Sans", sans-serif;
+}
+
+:root {
+    --radius: 0.875rem;
+
+    --gold: oklch(0.78 0.13 85);
+    --gold-bright: oklch(0.86 0.16 90);
+    --gold-muted: oklch(0.72 0.12 82);
+    --gold-dim: oklch(0.55 0.09 78);
+
+    --navy: oklch(0.16 0.02 260);
+    --navy-card: oklch(0.21 0.025 260);
+
+    --up: oklch(0.74 0.17 155);
+    --down: oklch(0.7 0.2 25);
+
+    --background: oklch(0.14 0.018 260);
+    --foreground: oklch(0.97 0.005 250);
+    --card: oklch(0.21 0.025 260);
+    --card-foreground: oklch(0.97 0.005 250);
+    --popover: oklch(0.21 0.025 260);
+    --popover-foreground: oklch(0.97 0.005 250);
+    --primary: var(--gold);
+    --primary-foreground: oklch(0.14 0.018 260);
+    --secondary: oklch(0.26 0.025 260);
+    --secondary-foreground: oklch(0.97 0.005 250);
+    --muted: oklch(0.24 0.022 260);
+    --muted-foreground: oklch(0.7 0.02 255);
+    --accent: oklch(0.28 0.04 80);
+    --accent-foreground: var(--gold-bright);
+    --destructive: oklch(0.7 0.2 25);
+    --destructive-foreground: oklch(0.97 0.005 250);
+    --border: oklch(0.78 0.13 85 / 0.18);
+    --input: oklch(0.78 0.13 85 / 0.22);
+    --ring: var(--gold);
+}
+
+.dark {
+    --background: oklch(0.14 0.018 260);
+    --foreground: oklch(0.97 0.005 250);
+}
+
+@layer base {
+    * {
+        border-color: var(--color-border);
+        box-sizing: border-box;
+        font-variant-numeric: tabular-nums;
+    }
+
+    html,
+    body {
+        background-color: var(--color-background);
+        color: var(--color-foreground);
+        font-family: var(--font-body);
+    }
+
+    ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: var(--color-gold);
+        border-radius: 3px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+}
+
+@utility font-display {
+    font-family: var(--font-display);
+}
+
+@utility font-bn {
+    font-family: var(--font-bn);
+}
+
+@utility gold-card {
+    background: linear-gradient(180deg, color-mix(in oklab, var(--gold) 4%, transparent), color-mix(in oklab, var(--gold) 1%, transparent));
+    border: 1px solid color-mix(in oklab, var(--gold) 22%, transparent);
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+}
+
+@utility price-number {
+    font-family: var(--font-display);
+    color: var(--color-gold-bright);
+    letter-spacing: -0.01em;
+}
+
+@utility text-gold {
+    color: var(--color-gold);
+}
+
+@utility text-gold-bright {
+    color: var(--color-gold-bright);
+}
+
+@keyframes marquee {
+    from {
+        transform: translateX(0)
+    }
+
+    to {
+        transform: translateX(-50%)
+    }
+}
+
+@keyframes pulseDot {
+
+    0%,
+    100% {
+        opacity: 1
+    }
+
+    50% {
+        opacity: 0.25
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px)
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0)
+    }
+}
+
+@keyframes spinOnce {
+    from {
+        transform: rotate(0deg)
+    }
+
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+.animate-marquee {
+    animation: marquee 45s linear infinite;
+}
+
+.animate-marquee:hover {
+    animation-play-state: paused;
+}
+
+.animate-pulse-dot {
+    animation: pulseDot 1.4s ease-in-out infinite;
+}
+
+.animate-fade-up {
+    animation: fadeInUp 0.7s ease-out both;
+}
+
+.animate-spin-once {
+    animation: spinOnce 0.6s ease-out;
+}
