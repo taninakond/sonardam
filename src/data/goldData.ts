@@ -1,12 +1,12 @@
 // Real BAJUS gold price data (2007–2026). All prices BDT per gram unless suffixed.
 
 export const TODAY = {
-    date: "2026-06-01",
+    date: "2026-06-02",
     k22_gram: 20415, k22_bhori: 238121,
     k21_gram: 19490, k21_bhori: 227331,
     k18_gram: 16705, k18_bhori: 194847,
     trad_gram: 13605, trad_bhori: 158689,
-    silver_bhori: 1900, silver_gram: 163,
+    silver_bhori: 5774, silver_gram: 495,
     change: { k22: 0, k21: 0, k18: 0, trad: 0 },
 };
 
@@ -27,7 +27,7 @@ export const RECENT_DATA = [
     { date: '2026-05-16', k22: 20415, k21: 19490, k18: 16705, trad: 13605 },
     { date: '2026-05-25', k22: 20415, k21: 19490, k18: 16705, trad: 13605 },
     { date: '2026-06-01', k22: 20415, k21: 19490, k18: 16705, trad: 13605 },
-];
+    { date: '2026-06-02', k22: 20415, k21: 19490, k18: 16705, trad: 13605 }];
 
 export const ALL_TIME_DATA = [
     { date: '2007-11-08', k22: 1986, k21: 1896, k18: 1690 },
@@ -61,12 +61,11 @@ export const ALL_TIME_DATA = [
     { date: '2026-01-29', k22: 24520, k21: 23405, k18: 20060 },
     { date: '2026-03-31', k22: 20980, k21: 20025, k18: 17165 },
     { date: '2026-06-01', k22: 20415, k21: 19490, k18: 16705 },
-];
+    { date: '2026-06-02', k22: 20415, k21: 19490, k18: 16705 }];
 
 export const MILESTONES = [
     { date: "2007-03-07", k22: 1620, label: "Dataset begins" },
     { date: "2020-09-11", k22: 6345, label: "COVID-19 peak" },
     { date: "2024-10-31", k22: 12305, label: "2024 high" },
     { date: "2026-01-29", k22: 24520, label: "All-time high" },
-    { date: "2026-06-01", k22: 20415, label: "Current" },
 ];
